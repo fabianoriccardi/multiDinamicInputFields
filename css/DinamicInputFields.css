@@ -13,7 +13,7 @@
 	background-color: black;
 }
 /*
-	Basic style
+    Basic style
 */
 .inputAndCloseWrapper-default{
 	position: relative;
@@ -33,7 +33,7 @@
 
 .removeFieldDiv-default{
 	background-color: grey;
-	padding: 3px;
+	padding: 4px;
 	border: 1px solid black;
 	border-radius: 10px;
 	position:absolute;
@@ -58,10 +58,10 @@
 }
 
 .closeSymbol-default{
+        background:url("../img/x.png");
+        background-size:cover;
 	position: relative;
 	font-size: 2em;
-	top:1px;
-	margin:0px;
 	height: 10px;
 	width: 10px;
 }
@@ -92,7 +92,7 @@
 
 .removeFieldDiv-google{
 	background-color: #df5a5a;
-	padding: 3px;
+	padding: 4px;
 	border: 1px solid black;
 	border-radius: 10px;
 	position:absolute;
@@ -108,10 +108,10 @@
 }
 
 .closeSymbol-google{
+        background:url("../img/x.png");
+        background-size:cover;
 	position: relative;
 	font-size: 2em;
-	top:1px;
-	margin:0px;
 	height: 10px;
 	width: 10px;
 }
@@ -155,7 +155,7 @@
 
 .removeFieldDiv-apple{
 	background-color: #df5a5a;
-	padding: 3px;
+	padding: 4px;
 	border: 1px solid black;
 	border-radius: 10px;
 	position:absolute;
@@ -167,10 +167,10 @@
 }
 
 .closeSymbol-apple{
+        background:url("../img/x.png");
+        background-size:cover;
 	position: relative;
 	font-size: 2em;
-	top:1px;
-	margin:0px;
 	height: 10px;
 	width: 10px;
 }
@@ -216,10 +216,60 @@
 }
 
 .closeSymbol-windows10{
+        background:url("../img/x.png");
+        background-size:cover;
+	position: relative;
+	margin-left:auto;
+	margin-right: auto;
+	height: 16px;
+	width: 16px;
+        top:1px;
+}
+
+/*
+	Weird style
+*/
+.inputAndCloseWrapper-weird{
+	position: relative;
+	display: inline-block;
+	margin-bottom: 5px;
+}
+
+.myInput-weird{
+    width: 100px;
+	background-color: greenyellow;
+	display: inline;
+	position: relative;
+	border: 3px ridge green;
+        border-radius: 4px;
+	outline: none;
+	margin-left: 5px;
+	padding-left: 2px;
+        height: 40px;
+        font-size: 20px;
+}
+
+.removeFieldDiv-weird{
+	background-color: greenyellow;
+	position:absolute;
+	height: 34px;
+	width: 35px;
+	right:3px;
+	top:3px;
+	text-align: center;
+}
+
+.removeFieldDiv-weird:hover{
+	background-color: green;
+}
+
+.closeSymbol-weird{
+        background-image:url("../img/x2.png");
+        background-size:cover;
 	position: relative;
 	margin-left:auto;
 	margin-right: auto;
 	top:1px;
-	height: 16px;
-	width: 16px;
+	height: 32px;
+	width: 32px;
 }

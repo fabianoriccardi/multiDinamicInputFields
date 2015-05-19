@@ -40,7 +40,7 @@ function DefaultValues(){ //remember that this is an bject, not a proper functio
 /* Initialization of enum*/
 var defaultValues=Object.freeze(new DefaultValues());
 
-var themeList=Object.freeze(["default","google","apple","windows10"]);
+var themeList=Object.freeze(["default","google","apple","windows10","weird"]);
 
 var multiDinamicInputFieldsList=new Array();
 function findInMDIFList(target){
@@ -192,7 +192,7 @@ MultiDinamicInputFields.prototype.addInput=function(){ //on add input button cli
 	    	'<input type="text" size="5" name="'+this.options.fieldsName+'[]" class="myInput-'+this.options.theme+'" />'+
 	    	'<div class="remove_field hide removeFieldDiv-'+this.options.theme+'">'+
 	    		'<div class="separator-'+this.options.theme+'"></div>'+
-	    		'<img class="closeSymbol-'+this.options.theme+' " src="img/x.png" />'+
+	    		'<div class="closeSymbol-'+this.options.theme+' " ></div>'+
 	    	'</div>'+
 	    '</div>'); //add input box
 	    $(this.wrapperName+" .inputAndCloseWrapper-"+this.options.theme+":last").hover(
