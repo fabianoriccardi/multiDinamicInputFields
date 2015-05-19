@@ -1,9 +1,11 @@
 <html>
     <head> 
         <script type="text/javascript" src="js/jquery-1.11.3.js" ></script>
+        <script type="text/javascript" src="js/DinamicInputFields.js" /></script>
+
         <title>Dinamic Inputs examples</title>
         <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
-        <link rel="stylesheet" type="text/css" href="css/custom.css"/>
+        <link rel="stylesheet" type="text/css" href="css/DinamicInputFields.css"/>
     </head>
     <body>
 		Simplest example (all settings to default value):
@@ -40,14 +42,12 @@
 		</div>
 		
 
-		<script type="text/javascript" src="js/custom.js" /></script>
 		<script>
 			newMultiDinamicInputFields("#myZeroBlaBlaBla");
 			newMultiDinamicInputFields("#myFirstBlaBlaBla",{"initialFields":3, "theme":"google","maxFields":7,"minFields":2,"fieldsName":"email"});
 			newMultiDinamicInputFields("#mySecondBlaBlaBla",{"theme":"apple"});
 			newMultiDinamicInputFields("#myThirdBlaBlaBla",{"maxFields":0,"allowMoreFields":true,"theme":"windows10","horizontalLines":true});
 			newMultiDinamicInputFields("#myFourthBlaBlaBla",{"maxFields":0,"allowMoreFields":true,"theme":"apple","horizontalLines":true});
-
 		</script>
 	</body>
 </html>
