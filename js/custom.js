@@ -104,7 +104,7 @@ function MultiDinamicInputFields(wrapperName,options){
 	}
 	
 	
-	    //NB: add button is defined as an array, so it can contain more elements (more trigger button) without any problem 
+	//NB: add button is defined as an array, so it can contain more elements (more trigger button) without any problem 
     $(this.add_button).click(function(e){
     	event.preventDefault();
     	var targetId=this.getAttribute("data-target");
@@ -117,11 +117,24 @@ function MultiDinamicInputFields(wrapperName,options){
     });
     
     $(this.wrapper).on("click",".remove_field", function(e){ //user click on remove text
+        e.stopPropagation();
         e.preventDefault();
         var index=findInMDIFList($(this).parent().parent());
         multiDinamicInputFieldsList[index].removeInput(this);
     });
 
+	$(this.wrapper).on("click",".inputAndCloseWrapper-"+this.options.theme,function(e){
+		/*Necessary to avoid the triggering of click binded to the entire wrapper*/
+		e.stopPropagation(); 
+	});
+	
+	/*This fires and create a new input field.*/
+	$(this.wrapperName).click(function(e){
+		var a=$(e.currentTarget);
+		var index=findInMDIFList($(e.currentTarget));
+	});
+	
+	
     /*NB: keydown and key press are pretty different! keydown should be used to detect the button, not the symbol. I don't know why, but it doesn't work properly with all button. I mean, same symbol on the same button have different code... Maybe it is duw to keyboard layout. 
     keypress should be used to detect the specific symbol pressed. This mean that it considers modificator like shift or alt. Thus, if you press and release only "shift", the trigger doesn't fire.
     */
@@ -132,14 +145,12 @@ function MultiDinamicInputFields(wrapperName,options){
     	// 9 is the code for tab. Not shift because i want to navigate backward
     	if(code==9&&!event.shiftKey){
     		if(multiDinamicInputFieldsList[index].addInput(event)){
-	    		multiDinamicInputFieldsList[index].adjustLines();
 	    		event.preventDefault();
 	    	}
     	// 8 is the code for DEL
     	}else if(code==8&&$(this).val()==""){
     		event.preventDefault();
 			multiDinamicInputFieldsList[index].removeInput(this);
-			multiDinamicInputFieldsList[index].adjustLines();
     	}
 		}));
 
@@ -191,6 +202,7 @@ MultiDinamicInputFields.prototype.addInput=function(){ //on add input button cli
 		//automatic focus on the last inserted, otherwise you can navigate the dom to find the last
 		var aaa=$(this.wrapperName+" .myInput-"+this.options.theme+":last");
 		$(this.wrapperName+" .myInput-"+this.options.theme+":last").focus(); //even without ":last" the methods works because, I suppose, it applies focus() to each element in the array, until it reaches the last (element that keeps the focus)
+		this.adjustLines();
 		return true;
 	}
 	return false;
@@ -214,6 +226,7 @@ MultiDinamicInputFields.prototype.removeInput=function(baseElement){
 		aux.focus(); //non va se c'è la linea
 		$(baseElement).parent().remove(); 
 		this.x--;
+		this.adjustLines();
 	}
 }
 
