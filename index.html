@@ -1,0 +1,45 @@
+<html>
+	<head>
+		<script type="text/javascript" src="js/jquery-1.11.3.js"/></script>
+		<script type="text/javascript" src="js/jsonCorrector.js"/></script>
+
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
+        <link rel="stylesheet" type="text/css" href="css/custom.css"/>
+
+	</head>
+	<body>
+		Simplest example (all settings to default value):
+		<div id="myZeroBlaBlaBla" class="multiDinamicInputFields"><!-- This comment, even if missing this sentence, is necessary to remove white space in HTML. In fact whitespace "broke" the flow inline-block with few white pixel.
+		--></div>
+
+		Google style:
+		<!-- Old button to add new input text> -->
+		<div id="myFirstBlaBlaBla" class="multiDinamicInputFields"><!-- This comment, even if missing this sentence, is necessary to remove white space in HTML. In fact whitespace "broke" the flow inline-block with few white pixel.
+		--></div>
+
+
+		More option (multiple buttons):<br />
+		<button class="add_field_button btn" data-target="#mySecondBlaBlaBla">Add More Fields</button>
+		<div id="mySecondBlaBlaBla" class="multiDinamicInputFields"><!-- This comment, even if missing this sentence, is necessary to remove white space in HTML. In fact whitespace "broke" the flow inline-block with few white pixel.
+		--></div>
+		<button class="add_field_button btn" data-target="#mySecondBlaBlaBla">Add More Fields</button>
+
+		Windows style and Infinite fields:
+		<!-- Old button to add new input text> -->
+		<div id="myThirdBlaBlaBla" class="multiDinamicInputFields"><!-- This comment, even if missing this sentence, is necessary to remove white space in HTML. In fact whitespace "broke" the flow inline-block with few white pixel.
+		--></div>
+		
+
+
+
+
+		<script type="text/javascript" src="js/custom.js" /></script>
+		<script>
+			newMultiDinamicInputFields("#myZeroBlaBlaBla");
+			newMultiDinamicInputFields("#myFirstBlaBlaBla",{"initialFields":3, "theme":"google","maxFields":7,"minFields":2,"fieldsName":"email"});
+			newMultiDinamicInputFields("#mySecondBlaBlaBla",{"theme":"apple"});
+			newMultiDinamicInputFields("#myThirdBlaBlaBla",{"maxFields":0,"allowMoreFields":true,"theme":"windows10","horizontalLines":true});
+
+		</script>
+	</body>
+</html>
