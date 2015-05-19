@@ -69,7 +69,6 @@ function MultiDinamicInputFields(wrapperName,options){
 		options=new Object();
 	}
 	
-	this.options	= JSONCorrector(defaultValues,options);
 	this.options	= $.extend({},defaultValues,options);
 	this.x			= 0;
 	this.wrapperName= wrapperName;
