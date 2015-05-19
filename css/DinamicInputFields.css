@@ -25,7 +25,7 @@
 	display: inline;
 	position: relative;
 	border: 1px solid;
-	outline: none;
+	outline: none; /*To delete the glow around the input box*/
 	border-radius: 15px;
 	margin-left: 5px;
 	padding-left: 10px;
@@ -76,12 +76,12 @@
 }
 
 .myInput-google{
-	background-color: #cbd9ff;
+	background-color: #EEEEEE;
 	display: inline;
 	position: relative;
-	border:1px solid #6b7cff;
+	border:1px solid #999999;
 	outline: none;
-	border-radius: 15px;
+	border-radius: 4px;
 	margin-left: 5px;
 	padding-left: 10px;
 }
@@ -91,33 +91,31 @@
 }
 
 .removeFieldDiv-google{
-	background-color: #df5a5a;
-	padding: 4px;
-	border: 1px solid black;
+	padding: 2px;
 	border-radius: 10px;
 	position:absolute;
 	height: 20px;
 	width: 20px;
 	right:2px;
-	top:2px;
+	top:3px;
 	text-align: center;
 }
 
 .removeFieldDiv-google:hover{
-	background-color: #cf1b1b;
+    
 }
 
 .closeSymbol-google{
-        background:url("../img/x.png");
+        background-image:url("../img/x-google.png");
         background-size:cover;
 	position: relative;
 	font-size: 2em;
-	height: 10px;
-	width: 10px;
+	height: 14px;
+	width: 14px;
 }
 
 .closeSymbol-google:hover{
-	
+	background-image:url("../img/x-google-dark.png");
 }
 
 /*
