@@ -1,0 +1,273 @@
+/*
+	Common style	
+*/
+.multiDinamicInputFields{
+	position: relative; /*necessary to use the $.position relative to the current wrapper*/
+}
+
+.horizontalLine{
+	position: absolute;
+	width: 100%;
+	height: 1px;
+	margin:0px;
+	background-color: black;
+}
+/*
+    Basic style
+*/
+.inputAndCloseWrapper-default{
+	position: relative;
+	display: inline-block;
+}
+
+.myInput-default{
+	/*width:200px; not useful is the size is setted dinamically*/
+	display: inline;
+	position: relative;
+	border: 1px solid;
+	outline: none; /*To delete the glow around the input box*/
+	border-radius: 15px;
+	margin-left: 5px;
+	padding-left: 10px;
+}
+
+.removeFieldDiv-default{
+	background-color: grey;
+	padding: 4px;
+	border: 1px solid black;
+	border-radius: 10px;
+	position:absolute;
+	height: 20px;
+	width: 20px;
+	right:2px;
+	top:2px;
+	text-align: center;
+}
+
+.separator-default{
+	position:absolute;
+	height: 20px;
+	border-left: 1px solid black;
+	width: 1px;
+	top:-1px;
+	right:20px;
+}
+
+.removeFieldDiv-default:hover{
+	background-color: green;
+}
+
+.closeSymbol-default{
+        background:url("../img/x.png");
+        background-size:cover;
+	position: relative;
+	font-size: 2em;
+	height: 10px;
+	width: 10px;
+}
+
+
+/*
+	Google Style	
+*/
+.inputAndCloseWrapper-google{
+	position: relative;
+	display: inline-block;
+}
+
+.myInput-google{
+	background-color: #EEEEEE;
+	display: inline;
+	position: relative;
+	border:1px solid #999999;
+	outline: none;
+	border-radius: 4px;
+	margin-left: 5px;
+	padding-left: 10px;
+}
+
+.myInput-google:focus{
+	background-color: white;
+}
+
+.removeFieldDiv-google{
+	padding: 2px;
+	border-radius: 10px;
+	position:absolute;
+	height: 20px;
+	width: 20px;
+	right:2px;
+	top:3px;
+	text-align: center;
+}
+
+.removeFieldDiv-google:hover{
+    
+}
+
+.closeSymbol-google{
+        background-image:url("../img/x-google.png");
+        background-size:cover;
+	position: relative;
+	font-size: 2em;
+	height: 14px;
+	width: 14px;
+}
+
+.closeSymbol-google:hover{
+	background-image:url("../img/x-google-dark.png");
+}
+
+/*
+	Apple Style	(serious style)
+*/
+.inputAndCloseWrapper-apple{
+	position: relative;
+	display: inline-block;
+	margin-bottom: 5px;
+}
+
+.myInput-apple{
+	/*
+		Note: background can be used as reset for all properties not specified.
+		To apply the gradient I need to use background and the simple background-color doesnt't work bevcause the gradient isn't a "color".
+	*/
+	background: linear-gradient(rgba(212,232,255,1) 0%, rgba(176,212,255,1) 100%);
+	display: inline;
+	position: relative;
+	border:1px solid #8691eb;
+	outline: none;
+	border-radius: 15px;
+	margin-left: 5px;
+	padding-left: 10px;
+}
+
+.inputAndCloseWrapper-apple:hover .myInput-apple{
+	background: linear-gradient(rgba(188,212,241,1) 0%, rgba(162,188,238,1) 100%);
+}
+
+.myInput-apple:focus{
+	background: white;
+	border-color: white;
+}
+
+.removeFieldDiv-apple{
+	background-color: #df5a5a;
+	padding: 4px;
+	border: 1px solid black;
+	border-radius: 10px;
+	position:absolute;
+	height: 20px;
+	width: 20px;
+	right:2px;
+	top:2px;
+	text-align: center;
+}
+
+.closeSymbol-apple{
+        background:url("../img/x.png");
+        background-size:cover;
+	position: relative;
+	font-size: 2em;
+	height: 10px;
+	width: 10px;
+}
+
+.removeFieldDiv-apple:hover{
+	background-color: #c13636;
+}
+
+
+
+/*
+	Windows 10 style
+*/
+.inputAndCloseWrapper-windows10{
+	position: relative;
+	display: inline-block;
+	margin-bottom: 5px;
+}
+
+.myInput-windows10{
+	background-color: yellow;
+	display: inline;
+	position: relative;
+	border: 1px solid;
+	outline: none;
+	margin-left: 5px;
+	padding-left: 2px;
+}
+
+.removeFieldDiv-windows10{
+	background-color: yellow;
+	border: 1px solid black;
+	position:absolute;
+	height: 20px;
+	width: 20px;
+	right:2px;
+	top:2px;
+	text-align: center;
+}
+
+.removeFieldDiv-windows10:hover{
+	background-color: grey;
+}
+
+.closeSymbol-windows10{
+        background:url("../img/x.png");
+        background-size:cover;
+	position: relative;
+	margin-left:auto;
+	margin-right: auto;
+	height: 16px;
+	width: 16px;
+        top:1px;
+}
+
+/*
+	Weird style
+*/
+.inputAndCloseWrapper-weird{
+	position: relative;
+	display: inline-block;
+	margin-bottom: 5px;
+}
+
+.myInput-weird{
+    width: 100px;
+	background-color: greenyellow;
+	display: inline;
+	position: relative;
+	border: 3px ridge green;
+        border-radius: 4px;
+	outline: none;
+	margin-left: 5px;
+	padding-left: 2px;
+        height: 40px;
+        font-size: 20px;
+}
+
+.removeFieldDiv-weird{
+	background-color: greenyellow;
+	position:absolute;
+	height: 34px;
+	width: 35px;
+	right:3px;
+	top:3px;
+	text-align: center;
+}
+
+.removeFieldDiv-weird:hover{
+	background-color: green;
+}
+
+.closeSymbol-weird{
+        background-image:url("../img/x2.png");
+        background-size:cover;
+	position: relative;
+	margin-left:auto;
+	margin-right: auto;
+	top:1px;
+	height: 32px;
+	width: 32px;
+}
