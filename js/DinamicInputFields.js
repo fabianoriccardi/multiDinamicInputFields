@@ -124,17 +124,25 @@ function MultiDinamicInputFields(wrapperName,options){
         multiDinamicInputFieldsList[index].addInput();
         e.stopPropagation();
     });
-    
-    
 
     $(this.wrapper).on("click",".remove_field", function(e){ //user click on remove text
         e.preventDefault();
         var index=findInMDIFList($(this).parent().parent());
         multiDinamicInputFieldsList[index].removeInput(this,true);
+        
     });
 
     $(this.wrapper).on("click",".inputAndCloseWrapper-"+this.options.theme,function(e){
-        
+        e.stopPropagation();
+    });
+    
+    $(this.wrapper).click(function(e){
+        var index=findInMDIFList($(e.currentTarget));
+        if((prevFocusedIndex===null&&prevFocusedElement===null)
+            ||
+           (prevFocusedIndex>=0&&index!==prevFocusedIndex)){
+           multiDinamicInputFieldsList[index].addInput();
+       }
     });
 
     /*NB: keydown and key press are pretty different! keydown should be used to detect the button, not the symbol. I don't know why, but it doesn't work properly with all button. I mean, same symbol on the same button have different code... Maybe it is duw to keyboard layout.
@@ -164,8 +172,8 @@ function MultiDinamicInputFields(wrapperName,options){
     	resizeInput(this);
     	// 44 and 59 are the codes for , ;
     	if(code===44||code===59){
-    		event.preventDefault();
-    		multiDinamicInputFieldsList[index].addInput();
+            event.preventDefault();
+            multiDinamicInputFieldsList[index].addInput();
     	}
 
     }));
@@ -197,6 +205,9 @@ function MultiDinamicInputFields(wrapperName,options){
         }
     });
     
+    /*
+     * This is called each time that an element in the entire document get a click. This is need only to remove when you lose the "focus"
+     */
     $(document).on("click","",function(event){
         //this first if is a simple optimization to avoid the execution of the for cycle due to the continue and multiple recall when a click occurs
         if(prevFocusedElement!==null&&prevFocusedIndex!==null){
@@ -216,7 +227,7 @@ function MultiDinamicInputFields(wrapperName,options){
             if(!foundCurrent&&foundPrevious){
                 var lastInput=multiDinamicInputFieldsList[prevFocusedIndex].wrapper.find("input:last");
                 if(lastInput.val()===""){
-                    multiDinamicInputFieldsList[prevFocusedIndex].removeInput(lastInput);
+                    multiDinamicInputFieldsList[prevFocusedIndex].removeInput(lastInput,false);
                 }
 
                 prevFocusedElement=null;
@@ -293,7 +304,9 @@ MultiDinamicInputFields.prototype.addInput=function(){ //on add input button cli
 MultiDinamicInputFields.prototype.removeInput=function(baseElement,searchNewFocus){
 	if(this.x===1){
             $(baseElement).parent().find("input").val("");
-            $(baseElement).parent().find("input").focus();
+            if(searchNewFocus){
+                $(baseElement).parent().find("input").focus();
+            }
 	}
 	if(this.x>1){
             if(searchNewFocus===true){

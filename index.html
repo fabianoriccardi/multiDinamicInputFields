@@ -1,11 +1,11 @@
 <html>
     <head> 
         <script type="text/javascript" src="js/jquery-1.11.3.js" ></script>
-        <script type="text/javascript" src="js/DinamicInputFields.js" /></script>
+        <script type="text/javascript" src="js/DinamicInputFields.js" ></script>
 
         <title>Dinamic Inputs examples</title>
-        <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
-        <link rel="stylesheet" type="text/css" href="css/DinamicInputFields.css"/>
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+        <link rel="stylesheet" type="text/css" href="css/DinamicInputFields.css" />
     </head>
     <body>
 		Simplest example (all settings to default value):
@@ -21,10 +21,10 @@
 		<br />
 
 		More option (multiple buttons):<br />
-		<button class="add_field_button btn" data-target="#mySecondBlaBlaBla">Add More Fields</button>
+		<button data-target="#mySecondBlaBlaBla">Add More Fields</button>
 		<div id="mySecondBlaBlaBla" class="multiDinamicInputFields"><!-- This comment, even if missing this sentence, is necessary to remove white space in HTML. In fact whitespace "broke" the flow inline-block with few white pixel.
 		--></div>
-		<button class="add_field_button btn" data-target="#mySecondBlaBlaBla">Add More Fields</button>
+		<button data-target="#mySecondBlaBlaBla">Add More Fields</button>
 
 		<br />
 		<br />
@@ -42,6 +42,8 @@
 		</div>
 		
 
+                <br /><br /><br />
+                <input type="text" />
 		<script>
 			newMultiDinamicInputFields("#myZeroBlaBlaBla");
 			newMultiDinamicInputFields("#myFirstBlaBlaBla",{"initialFields":3, "theme":"google","maxFields":7,"minFields":2,"fieldsName":"email"});
