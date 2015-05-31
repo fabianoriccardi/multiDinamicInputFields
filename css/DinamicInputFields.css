@@ -146,7 +146,7 @@
 	background: linear-gradient(rgba(188,212,241,1) 0%, rgba(162,188,238,1) 100%);
 }
 
-.myInput-apple:focus{
+.inputAndCloseWrapper-apple .myInput-apple:focus{
 	background: white;
 	border-color: white;
 }
