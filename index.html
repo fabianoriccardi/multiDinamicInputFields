@@ -19,6 +19,14 @@
 		--></div>
 
 		<br />
+                
+                Google style: easily adapt to your style!
+                <div style="font-size: 1.5em;">
+                    <div id="myFirstBlaBlaBla2" class="multiDinamicInputFields"><!-- This comment, even if missing this sentence, is necessary to remove white space in HTML. In fact whitespace "broke" the flow inline-block with few white pixel.
+                    --></div>
+                </div>
+                
+		<br />
 
 		More option (multiple buttons):<br />
 		<button data-target="#mySecondBlaBlaBla">Add More Fields</button>
@@ -47,7 +55,8 @@
 		<script>
 			newMultiDinamicInputFields("#myZeroBlaBlaBla");
 			newMultiDinamicInputFields("#myFirstBlaBlaBla",{"initialFields":3, "theme":"google","maxFields":7,"minFields":2,"fieldsName":"email"});
-			newMultiDinamicInputFields("#mySecondBlaBlaBla",{"theme":"apple"});
+			newMultiDinamicInputFields("#myFirstBlaBlaBla2",{"initialFields":3, "theme":"google","maxFields":7,"minFields":2,"fieldsName":"email"});
+                        newMultiDinamicInputFields("#mySecondBlaBlaBla",{"theme":"apple"});
 			newMultiDinamicInputFields("#myThirdBlaBlaBla",{"maxFields":0,"allowMoreFields":true,"theme":"windows10","horizontalLines":true});
 			newMultiDinamicInputFields("#myFourthBlaBlaBla",{"maxFields":0,"allowMoreFields":true,"theme":"weird","horizontalLines":true});
 		</script>

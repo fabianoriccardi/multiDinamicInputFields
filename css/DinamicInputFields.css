@@ -42,6 +42,7 @@
 	right:2px;
 	top:2px;
 	text-align: center;
+        cursor: pointer;
 }
 
 .separator-default{
@@ -99,6 +100,7 @@
 	right:2px;
 	top:3px;
 	text-align: center;
+        cursor:pointer;
 }
 
 .removeFieldDiv-google:hover{
@@ -162,6 +164,7 @@
 	right:2px;
 	top:2px;
 	text-align: center;
+        cursor: pointer;
 }
 
 .closeSymbol-apple{
@@ -207,6 +210,7 @@
 	right:2px;
 	top:2px;
 	text-align: center;
+        cursor: pointer;
 }
 
 .removeFieldDiv-windows10:hover{
@@ -228,23 +232,23 @@
 	Weird style
 */
 .inputAndCloseWrapper-weird{
-	position: relative;
-	display: inline-block;
-	margin-bottom: 5px;
+    position: relative;
+    display: inline-block;
+    margin-bottom: 5px;
 }
 
 .myInput-weird{
     width: 100px;
-	background-color: greenyellow;
-	display: inline;
-	position: relative;
-	border: 3px ridge green;
-        border-radius: 4px;
-	outline: none;
-	margin-left: 5px;
-	padding-left: 2px;
-        height: 40px;
-        font-size: 20px;
+    background-color: greenyellow;
+    display: inline;
+    position: relative;
+    border: 3px ridge green;
+    border-radius: 4px;
+    outline: none;
+    margin-left: 5px;
+    padding-left: 2px;
+    height: 40px;
+    font-size: 20px;
 }
 
 .removeFieldDiv-weird{

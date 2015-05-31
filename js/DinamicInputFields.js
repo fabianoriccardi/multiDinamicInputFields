@@ -114,7 +114,7 @@ function MultiDinamicInputFields(wrapperName,options){
 
 	//NB: add button is defined as an array, so it can contain more elements (more trigger button) without any problem
     $(this.add_button).click(function(e){
-    	event.preventDefault();
+    	e.preventDefault();
     	var targetId=this.getAttribute("data-target");
 
     	var index=findInMDIFList($(targetId));
