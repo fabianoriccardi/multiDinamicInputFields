@@ -38,6 +38,7 @@ function DefaultValues(){ //remember that this is an bject, not a proper functio
 	this.variableLength=true;
 	this.allowMoreFields=false;
 	this.horizontalLines=false;
+        this.smartResize=true;
 }
 /* Initialization of enum*/
 var defaultValues=Object.freeze(new DefaultValues());
@@ -81,12 +82,12 @@ function MultiDinamicInputFields(wrapperName,options){
     this.x			= 0;
     this.wrapperName= wrapperName;
     this.wrapper	= $(wrapperName);
-    if(this.wrapper.length !=1){
+    if(this.wrapper.length !==1){
         console.log( "You have mistakes with wrapper identifier: --"+wrapperName+"--. It should be an existent ID ( => single ). The MDIF's initialization is quitted." );
         return;
     }
 
-    if($.inArray(this.options.theme,themeList)==-1){
+    if($.inArray(this.options.theme,themeList)===-1){
         this.options.theme="default";
         console.log("Warning: you are setting an unknown theme: assumed default.");
     }
@@ -104,6 +105,7 @@ function MultiDinamicInputFields(wrapperName,options){
         this.options.allowMoreFields=defaultValues.allowMoreFields;
     }
 
+    $(this.wrapper).append("<span id=\"mokeText\" style=\"display:none\"></span>");
 
 
     //Init the lines
@@ -161,20 +163,24 @@ function MultiDinamicInputFields(wrapperName,options){
     	}else if(code===8&&$(this).val()===""){
             event.preventDefault();
             multiDinamicInputFieldsList[index].removeInput(this,true);
-    	}
+    	}else if(code===8){
+            multiDinamicInputFieldsList[index].resizeInput(this,null);
+        }
     }));
 
     $(this.wrapper).on("keypress",".myInput-"+this.options.theme,(function(event) {
-    	var code= (event.which);
+    	var code= event.which;
     	var asd=$(this).parent().parent();
     	var index=findInMDIFList($(this).parent().parent());
 
-    	resizeInput(this);
     	// 44 and 59 are the codes for , ;
     	if(code===44||code===59){
             event.preventDefault();
             multiDinamicInputFieldsList[index].addInput();
-    	}
+    	}else{
+            var char=String.fromCharCode(event.which);
+            multiDinamicInputFieldsList[index].resizeInput(this,char);
+        }
 
     }));
     //////////////////////////////////////////// LOOK ABOVE
@@ -370,7 +376,7 @@ MultiDinamicInputFields.prototype.whichLinesAreOccupied=function(){
                 //some unknown error: the position isn't relative to the parent but sem to entire doc. I also tried with other div...
                 var top=$(this).position().top;
                 if($.inArray(top,positionArray)===-1){
-                        positionArray.push(top);
+                    positionArray.push(top);
                 }
             }
         );
@@ -382,10 +388,30 @@ MultiDinamicInputFields.prototype.whichLinesAreOccupied=function(){
  * @param {Object} HTML element (not jQuery).
  * @returns {undefined}
  */
-function resizeInput(elem) {
-    $(elem).css("width","auto");
-    $(elem).attr('size', $(elem).val().length+5);
-}
+MultiDinamicInputFields.prototype.resizeInput=function (elem, char) {
+    if(this.options.smartResize){
+        var text=$(elem).val();
+        if(char!==null){
+            text+=char;
+        }else{
+            text=text.substr(0,text.length-1);
+        }
+        
+        this.wrapper.find("span").text(text);
+        this.wrapper.find("span").css("font-size",$(elem).css("font-size"));
+        
+        //Find the width of the close div
+        var widthClose=this.wrapper.find(".removeFieldDiv-"+this.options.theme).width();
+       
+       //15 is constant and take into account margin a border
+        var num=this.wrapper.find("span").width()+15+widthClose;
+        var as=this.wrapper.find("span").width();
+        $(elem).css("width",num+"px");
+    }else{
+        $(elem).css("width","auto");
+        $(elem).attr('size', $(elem).val().length+5);
+    }   
+};
 
 /*
  * Funtion to init the wrapper: it's not necessary recall the real constructor
